@@ -20,5 +20,10 @@
             <artifactId>lanterna</artifactId>
             <version>3.1.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.lalyos</groupId>
+            <artifactId>jfiglet</artifactId>
+            <version>0.0.8</version>
+        </dependency>
     </dependencies>
 </project>
