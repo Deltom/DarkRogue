@@ -9,8 +9,11 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.TerminalResizeListener;
+
+import java.awt.*;
 import java.io.IOException;
 import com.github.lalyos.jfiglet.FigletFont;
+import com.googlecode.lanterna.input.MouseAction;
 
 public class Menu
 {
@@ -58,4 +61,6 @@ public class Menu
         terminal.flush();
         terminal.close();
     }
+
+
 }

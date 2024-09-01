@@ -20,6 +20,9 @@ public class Main
 
         // Продолжаем выполнение кода в основном потоке
         menu.createMenu();
+        audioThread.interrupt();
+
+
         /* switch (terminalClass.choose())
         {
             case "1" -> terminalClass.simbel();
@@ -28,7 +31,6 @@ public class Main
             default -> System.out.println("Неверный символ");
         }*/
 
-        // Ждем завершения потока audioThread (если нужно)
-            audioThread.join();
+        // Ждем завершения потока audioThread (если нужно
     }
 }
