@@ -4,12 +4,26 @@ public class Motion //Родительский класс движений
 {
     String[] resultOfMotion = {"Fail", "Success", "Critical Fail", "Critical Success"};
 
+    String[] tagsPlayerOne;
+    String[] tagsPlayerTwo;
 
-   /* public String outputResult()
+    public String outputResult(int resultNumber)    //Метод отправки результатов действий в класс результатов
     {
+        return resultOfMotion[resultNumber];
+    }
 
+    //Получение тегов обоих игроков для определения доступных действий
+    public void getTagsPlayerOne(String[] tagsPlayerOne) { this.tagsPlayerOne = tagsPlayerOne; }
+
+    public void getTagsPlayerTwo(String[] tagsPlayerTwo) { this.tagsPlayerTwo = tagsPlayerTwo; }
+
+    public String[] setTagsPlayerOne() { return tagsPlayerOne; }
+    public String[] setTagsPlayerTwo() { return tagsPlayerTwo; }
+
+   /* public void movesMethod()   //метод движения
+    {
+        String[] tagsP1 = {"stand"};
     }*/
-
 }
 
 class LowMotion extends Motion //Класс движений с низкой инициативы
@@ -24,16 +38,23 @@ class HighMotion extends Motion //Класс движений с высокой 
 
 class SameMotion extends Motion //Класс движений с одинаковой инициативой
 {
+    public void Attack()    //Атака
+    {
+        String[] tagsP1 = {"close", "stand", "sword"};
 
+    }
 }
 /*
 Кроме методов самих движений, что нужно классу:
-    результат действия(успешно, неуспешно) В будущем будет(критичесчи успешно, критически неудачно)
-    метод отправки результата действия в класс результатов
-    метод получения данных игроков(положение, и другая инфа для дадатия тегов)
-    метод отправки в классы результатов
-    метод приблежения и отдаления(чуток позже)
+    метод определения нужных движений
+    результат действия(успешно, неуспешно) В будущем будет(критически успешно, критически неудачно) +
+    метод отправки результата действия в класс результатов.                                         +
+    метод получения данных игроков(положение, и другая инфа для дадатия тегов)                      +
+    метод отправки данных в классы результатов
+    метод приближения и отдаления(чуток позже)
     метод смены позы(чуток позже)
+    Отправка изменённых тегов игроку                                                                +
+    метод составления и вывод возможных к применению действий
         Доп для низкого:
             метод получения и обработки действий высокой инициативы
 

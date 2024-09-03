@@ -1,4 +1,6 @@
 package NPC;
 
-public class TestBattleNpc {
+public class TestBattleNpc
+{
+
 }
