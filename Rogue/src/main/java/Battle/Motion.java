@@ -11,7 +11,7 @@ public class Motion //Родительский класс движений
 {
     Map<Integer, List<String>> methodsWithTags = new HashMap<>();   //Список тегов необходимых для метода
     Map<Integer, Integer> idOfMethods = new HashMap<>();   //Список для методов к которым может обратиться игрок и их айди
-    List<String> methodsNames = List.of("Attack", "Heal");  //Список всех действий
+    List<String> methodsNames = List.of("Attack", "Heal", "Defend");  //Список всех действий
 
     Scanner scanner = new Scanner(System.in);
 
@@ -24,6 +24,7 @@ public class Motion //Родительский класс движений
     {
         methodsWithTags.put(1, new ArrayList<>(List.of("P1close", "P1stand", "P1sword", "P2close")));   //Attack
         methodsWithTags.put(2, new ArrayList<>(List.of("P1stand")));   // Heal
+        methodsWithTags.put(3, new ArrayList<>(List.of("P1stand")));   // Heal
     }
 
 
@@ -118,13 +119,14 @@ public class Motion //Родительский класс движений
     public void selectMethodsShow(Player playerOne, Player playerTwo) // Вывод возможных к использованию методов действий
     {
         fillMethodsWithTags();
-        int count = 1;
+        int count = 0;
         for (int i = 1; i < methodsNames.size() + 1; i++)
         {
             if(getMethodsByTags(playerOne,playerTwo,i))
             {
                 showMethods(i - 1);
                 idOfMethods.put(count, i - 1);
+                count++;
             }
         }
     }
@@ -150,8 +152,13 @@ class SameMotion extends Motion //Класс движений с одинако�
 
     public void playerSelectMotion(Player playerOne, Player playerTwo)
     {
+
+
         System.out.println("Вам доступно:");
         selectMethodsShow(playerOne, playerTwo);
+        for (int i = 0; i < idOfMethods.size(); i++) {
+            System.out.println(idOfMethods.get(i));
+        }
         System.out.println("Ваше действие:");
         doMotion(playerOne, playerTwo, idOfMethods.get(scanner.nextInt()));
     }
@@ -160,10 +167,10 @@ class SameMotion extends Motion //Класс движений с одинако�
     {
         System.out.println("ID mothion: " + motionID);
         switch (motionID) {
-            case 1:
+            case 0:
                 Attack(playerTwo);
                 break;
-            case 2:
+            case 1:
                 Heal(playerOne);
                 break;
         }
