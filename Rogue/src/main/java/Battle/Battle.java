@@ -1,8 +1,39 @@
 package Battle;
 
+import Player.Player;
+
 public class Battle
 {
 
+    public static void main(String[] args)
+    {
+        Player playerOne = new Player();
+        Player playerTwo = new Player();
+        SameMotion sameMotion = new SameMotion();
+
+        //sameMotion.Attack(playerOne);
+        //sameMotion.selectMethodsShow(playerOne,playerTwo);
+        //System.out.println(sameMotion.getMethodsByTags(playerOne, playerTwo, 1));
+
+
+
+        //Тестовый бой
+        while(playerOne.getHealth() > 0 || playerTwo.getHealth() > 0)
+        {
+            System.out.println("Ход первого игрока");
+            sameMotion.playerSelectMotion(playerOne, playerTwo);
+
+            System.out.println("Ход второго игрока");
+            sameMotion.playerSelectMotion(playerTwo, playerOne);
+
+
+            System.out.println("Итоги: \nЗдоровье первого: " + playerOne.getHealth() + "\nЗдоровье второго: " + playerTwo.getHealth());
+        }
+
+
+
+
+    }
 }
 
 /*Продумаем реализацию боёвки. У нас есть действия, и разный исход, в зависимости от случайности и инициативы.
